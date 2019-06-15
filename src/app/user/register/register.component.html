@@ -1,0 +1,147 @@
+<nav class="navbar shadow-lg bg-dark">
+  <a class="navbar-brand active" routerLink="/register">Home</a>
+  <div>
+    <button routerLink="/register" class="ha btn btn-success">
+      Register
+    </button>
+    <button routerLink="/login" class="ha btn btn-secondary">
+      Login
+    </button>
+  </div>
+</nav>
+
+<div class="container p-5 bg">
+  <div class="col-md-5 shadow mr-auto p-3 mt-3">
+    <h3 class="text-center">Register</h3>
+    <form [formGroup]="registerForm">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          formControlName="username"
+          minlength="4"
+          required
+        />
+        <div
+          *ngIf="
+            registerForm.controls['username'].invalid &&
+            (registerForm.controls['username'].dirty ||
+              registerForm.controls['username'].touched)
+          "
+          class="text-danger txt"
+        >
+          <span
+            *ngIf="registerForm.controls['username'].errors.required"
+            class="text-danger"
+          >
+            Username is required.
+          </span>
+          <span
+            *ngIf="registerForm.controls['username'].errors.minlength"
+            class="text-danger"
+          >
+            Maxlent is required.
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          formControlName="email"
+          required
+        />
+
+        <div
+          *ngIf="
+            registerForm.controls['email'].invalid &&
+            (registerForm.controls['email'].dirty ||
+              registerForm.controls['email'].touched)
+          "
+          class="text-danger txt"
+        >
+          <span
+            *ngIf="registerForm.controls['email'].errors.required"
+            class="text-danger"
+          >
+            Email is required.
+          </span>
+          <span
+            *ngIf="registerForm.controls['email'].errors.pattern"
+            class="text-danger"
+          >
+            Must be Valid email format.
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="bod">Birth Day:</label>
+        <input
+          type="date"
+          class="form-control"
+          id="bod"
+          formControlName="birthday"
+          required
+        />
+
+        <div
+          *ngIf="
+            registerForm.controls['birthday'].invalid &&
+            (registerForm.controls['birthday'].dirty ||
+              registerForm.controls['birthday'].touched)
+          "
+          class="text-danger txt"
+        >
+          <span
+            *ngIf="registerForm.controls['birthday'].errors.required"
+            class="text-danger"
+          >
+            Birthday is required.
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input
+          type="password"
+          class="form-control"
+          id="password"
+          formControlName="password"
+          required
+        />
+        <div
+          *ngIf="
+            registerForm.controls['password'].invalid &&
+            (registerForm.controls['password'].dirty ||
+              registerForm.controls['password'].touched)
+          "
+          class="text-danger txt"
+        >
+          <span
+            *ngIf="registerForm.controls['password'].errors.required"
+            class="text-danger"
+          >
+            Password is required.
+          </span>
+        </div>
+      </div>
+      <!--  <div>
+        <input type="text" formControlName="passwordConfirmation" />
+      </div> -->
+      <button
+        [disabled]="!registerForm.valid"
+        (click)="register()"
+        class="btn btn-success btn-block"
+      >
+        Submit
+      </button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+.txt {
+  padding-top: 4px;
+  padding-left: 10px;
+}
+
+.navbar-brand {
+  font-size: 22px;
+  font-weight: bold;
+  margin-left: 5%;
+}
+.ha {
+  direction: none;
+  color: black;
+  font-size: 16px;
+  margin: 5px;
+}
+
+.ha :hover {
+  color: white;
+}
+
+.bg {
+  background-color: #99ff99;
+}

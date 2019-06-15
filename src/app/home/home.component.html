@@ -1,0 +1,16 @@
+<nav class="navbar shadow-lg bg-dark">
+  <a class="navbar-brand active" routerLink="/register">Profile</a>
+  <div>
+    <button (click)="logOut()" class="btn btn-danger">Logout</button>
+  </div>
+</nav>
+
+<div class="container p-5 bg">
+  <div class="col-md-5 shadow mx-auto p-3 mt-3">
+    <h3 class="text-center">User Data</h3>
+    <p class="data">Name: {{ name }}</p>
+    <p class="data">DOB: {{ dob }}</p>
+    <p class="data">Email: {{ email }}</p>
+    <p class="data">Password: {{ pass }}</p>
+  </div>
+</div>

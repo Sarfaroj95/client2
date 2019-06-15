@@ -1,0 +1,85 @@
+<nav class="navbar shadow-lg bg-dark">
+  <a class="navbar-brand active" routerLink="/register">Login</a>
+  <div>
+    <button routerLink="/register" class="ha btn btn-secondary">
+      Register
+    </button>
+    <button routerLink="/login" class="ha btn btn-success">
+      Login
+    </button>
+  </div>
+</nav>
+
+<div class="container p-5 bg">
+  <div class="col-md-5 shadow mr-auto p-3 mt-3">
+    <h3 class="text-center">Login</h3>
+    <form [formGroup]="loginForm">
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          formControlName="email"
+          required
+        />
+
+        <div
+          *ngIf="
+            loginForm.controls['email'].invalid &&
+            (loginForm.controls['email'].dirty ||
+              loginForm.controls['email'].touched)
+          "
+          class="text-danger txt"
+        >
+          <span
+            *ngIf="loginForm.controls['email'].errors.required"
+            class="text-danger"
+          >
+            Email is required.
+          </span>
+          <span
+            *ngIf="loginForm.controls['email'].errors.pattern"
+            class="text-danger"
+          >
+            Must be Valid email format.
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input
+          type="password"
+          class="form-control"
+          id="password"
+          formControlName="password"
+          required
+        />
+        <div
+          *ngIf="
+            loginForm.controls['password'].invalid &&
+            (loginForm.controls['password'].dirty ||
+              loginForm.controls['password'].touched)
+          "
+          class="text-danger txt"
+        >
+          <span
+            *ngIf="loginForm.controls['password'].errors.required"
+            class="text-danger"
+          >
+            Password is required.
+          </span>
+        </div>
+      </div>
+
+      <button
+        [disabled]="!loginForm.valid"
+        (click)="login()"
+        class="btn btn-success btn-block"
+      >
+        Submit
+      </button>
+    </form>
+  </div>
+</div>
