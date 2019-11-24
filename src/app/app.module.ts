@@ -15,8 +15,9 @@ import { HttpClientModule } from "@angular/common/http";
 import { ToastrModule } from "ng6-toastr-notifications";
 
 const routes: Routes = [
+  { path: "", redirectTo: "/register", pathMatch: "full" },
   { path: "register", component: RegisterComponent },
-  { path: "home", component: HomeComponent },
+  { path: "profile", component: HomeComponent },
   { path: "login", component: LoginComponent }
 ];
 

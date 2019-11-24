@@ -29,7 +29,9 @@ export class RegisterComponent implements OnInit {
         this.router.navigate(["/login"]);
       },
       error => {
-        this.toastr.errorToastr("Something went wrong.", "Oops!");
+        // this.toastr.errorToastr("Something went wrong.", "Oops!");
+        let er = error.error.errors[0];
+        this.toastr.errorToastr(er.details, er.title);
         console.log("somethign went wrong");
       }
     );

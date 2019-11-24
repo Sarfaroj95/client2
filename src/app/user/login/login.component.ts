@@ -32,11 +32,12 @@ export class LoginComponent implements OnInit {
         localStorage.setItem("password", result.data.password);
 
         this.toastr.successToastr("Login Successfully.", "Success!");
-        this.router.navigate(["/home"]);
+        this.router.navigate(["/profile"]);
       },
       error => {
-        this.toastr.errorToastr("Something went wrong.", "Oops!");
-        console.log("somethign went wrong");
+        let er = error.error.errors[0];
+        this.toastr.errorToastr(er.details, er.title);
+        console.log("somethign went wrong", er);
       }
     );
   }
